@@ -1,0 +1,14 @@
+
+public class Student {
+	int id;
+	String name, course;
+	int marks[] = new int[3];
+	
+	public int total(int[] marks) {
+		return marks[1]+marks[2]+marks[3];
+	}
+	
+	public double percentage(int[] marks) {
+		return (double)(marks[1]+marks[2]+marks[3])/3;
+	}
+}

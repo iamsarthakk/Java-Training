@@ -1,0 +1,21 @@
+
+public class CI1 implements I1 {
+	
+	String s;
+	public CI1() {
+		
+	}
+	public CI1(String s) {
+		this.s = s;
+	}
+	@Override
+	public void input() {
+		
+	}
+
+	@Override
+	public void output() {
+		System.out.println(a+" "+s);
+	}
+	
+}

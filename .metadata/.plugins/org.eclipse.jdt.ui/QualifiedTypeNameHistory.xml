@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+    <fullyQualifiedTypeName name="Emp.OfficeAddress"/>
+    <fullyQualifiedTypeName name="Bank.Banking"/>
+    <fullyQualifiedTypeName name="Bank_Classes.Saving_Trn"/>
+    <fullyQualifiedTypeName name="Bank_Classes.Recurring_Trn"/>
+    <fullyQualifiedTypeName name="Bank_Classes.Customer"/>
+</qualifiedTypeNameHistroy>

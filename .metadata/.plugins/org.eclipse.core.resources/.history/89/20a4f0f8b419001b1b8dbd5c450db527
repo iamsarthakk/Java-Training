@@ -1,0 +1,15 @@
+package pc1;
+
+public class C1 {
+	int a;
+	 C1(int a) {
+		this.a = a;
+	}
+	 void inputC1(int a) {
+		this.a = a;
+	}
+	 void outpuC1() {
+		System.out.println(a);
+	}
+	
+}

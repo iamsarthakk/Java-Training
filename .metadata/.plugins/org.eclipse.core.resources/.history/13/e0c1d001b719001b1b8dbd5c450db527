@@ -1,0 +1,12 @@
+package p2;
+
+public class A3 extends A2{
+	String s;
+	A3(){
+		
+	}
+	 void display() {
+		s = "GenPact";
+		System.out.println(s);
+	}
+}

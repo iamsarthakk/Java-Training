@@ -1,0 +1,44 @@
+package customer;
+
+public class Customer {
+	int cid;
+	long accnumb;
+	double balance;
+	String name;
+	public Customer(int cid, long accnumb, long balance, String name) {
+		super();
+		this.cid = cid;
+		this.accnumb = accnumb;
+		this.balance = balance;
+		this.name = name;
+	}
+	public int getCid() {
+		return cid;
+	}
+	public void setCid(int cid) {
+		this.cid = cid;
+	}
+	public long getAccnumb() {
+		return accnumb;
+	}
+	public void setAccnumb(long accnumb) {
+		this.accnumb = accnumb;
+	}
+	public double getBalance() {
+		return balance;
+	}
+	public void setBalance(double balance) {
+		this.balance = balance;
+	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	@Override
+	public String toString() {
+		
+		return "Customer [cid=" + cid + ", accnumb=" + accnumb + ", balance=" + balance + ", name=" + name + "]";
+	}
+}

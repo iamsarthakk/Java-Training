@@ -1,0 +1,15 @@
+import pc1.C1;
+
+public class C2 extends C1{
+	double d;
+	public C2(double d, int a) {
+		super(a);
+		this.d = d;
+	}
+	public void inputC2(double d) {
+		this.d = d;
+	}
+	public void outputC2() {
+		System.out.println(d);
+	}
+}

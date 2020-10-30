@@ -1,0 +1,10 @@
+
+public class C3 extends C2{
+	String s;
+	public void inputC3(String s) {
+		this.s = s;
+	}
+	public void outputC3() {
+		System.out.println(s);
+	}
+}

@@ -1,0 +1,22 @@
+package Bank_Classes;
+
+import Bank.Banking;
+
+public class Saving_Trn extends Customer implements Banking{
+	public Saving_Trn(int cid, long accnumb, long balance, String name) {
+		super(cid, accnumb, balance, name);
+	}
+	
+	@Override
+	public void deposit(double amount) {
+		balance += amount;
+	}
+	@Override
+	public double calinterest(double principal) {
+		return principal*sint_rate;
+	}
+	@Override
+	public void withdraw(double amount) {
+		balance -= amount;
+	}
+}

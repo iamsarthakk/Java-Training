@@ -1,0 +1,22 @@
+package p3;
+
+public class Testth1 {
+	public static void main(String args[]) {
+		Sampleth obj1 = new Sampleth();
+		Sampleth obj2 = new Sampleth();
+		Sampleth obj3 = new Sampleth();
+		Sampleth obj4 = new Sampleth();
+		Sampleth obj5 = new Sampleth();
+		Sampleth obj6 = new Sampleth();
+		Sampleth obj7 = new Sampleth();
+		Sampleth obj8 = new Sampleth();
+		Sampleth obj9 = new Sampleth();
+		Sampleth obj10 = new Sampleth();
+		Sampleth obj11 = new Sampleth();
+		Sampleth obj12 = new Sampleth();
+		Sampleth obj13 = new Sampleth();
+		Sampleth obj14 = new Sampleth();
+		Sampleth obj15 = new Sampleth();
+	
+	}
+}

@@ -1,0 +1,14 @@
+
+public class MI extends CI1 implements I1 {
+	double d;
+	
+	@Override
+	public void input() {
+		
+	}
+	
+	@Override
+	public void output() {
+		
+	}
+}

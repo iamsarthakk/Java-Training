@@ -1,0 +1,9 @@
+
+public class TestMain1 {
+	public static void main(String[] args) {
+		C3 obj = new C3("LOL", 20.0, 20);
+		obj.inputC1(25);
+		obj.inputC2(45.55);
+		obj.inputC3("New Delhi");
+	}
+}

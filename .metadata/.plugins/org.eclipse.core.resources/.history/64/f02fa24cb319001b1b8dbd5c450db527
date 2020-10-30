@@ -1,0 +1,14 @@
+
+public class C3 extends C2{
+	String s;
+	public C3(String s, double d, int a) {
+		super(d, a);   //Call Superclass constructor
+		this.s = s;
+	}
+	public void inputC3(String s) {
+		this.s = s;
+	}
+	public void outputC3() {
+		System.out.println(s);
+	}
+}

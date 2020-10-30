@@ -1,0 +1,20 @@
+package p3;
+
+public class Sampleth extends Thread{
+	int x;
+	String str;
+	Sampleth(String s){
+		x =0;
+		str = s;
+		start();
+	}
+	
+	public void run() {
+		for(int i=0;i<50;i++) {
+			x += 2;
+			System.out.print("str-> "+x+" ");
+		}
+		System.out.println();
+	}
+	
+}

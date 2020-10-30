@@ -1,0 +1,10 @@
+package p2;
+
+public class TestMain {
+	public static void main(String args[]) {
+		A3 obj = new A3();
+		obj.display();
+		obj.display();
+		obj.display();
+	}
+}

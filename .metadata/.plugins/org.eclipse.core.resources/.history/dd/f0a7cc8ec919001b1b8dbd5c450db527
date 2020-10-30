@@ -1,0 +1,13 @@
+package Bank_Main;
+
+import Bank_Classes.Customer;
+import Bank_Classes.Recurring_Trn;
+import Bank_Classes.Saving_Trn;
+
+public class Main {
+
+	public static void main(String[] args) {
+			Customer c1 = new Customer(101, 20000455, 2000, "Raskovnikov");
+	}
+
+}
