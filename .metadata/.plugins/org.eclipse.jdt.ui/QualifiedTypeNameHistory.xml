@@ -5,4 +5,8 @@
     <fullyQualifiedTypeName name="Bank_Classes.Saving_Trn"/>
     <fullyQualifiedTypeName name="Bank_Classes.Recurring_Trn"/>
     <fullyQualifiedTypeName name="Bank_Classes.Customer"/>
+    <fullyQualifiedTypeName name="java.lang.System"/>
+    <fullyQualifiedTypeName name="UserExceptions.AmoutException"/>
+    <fullyQualifiedTypeName name="UserExceptions.NullStringException"/>
+    <fullyQualifiedTypeName name="UserExceptions.MinBalanceException"/>
 </qualifiedTypeNameHistroy>
