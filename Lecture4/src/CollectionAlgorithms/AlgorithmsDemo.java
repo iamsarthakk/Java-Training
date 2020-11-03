@@ -1,11 +1,14 @@
 package CollectionAlgorithms;
 
 import java.util.Arrays;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.LinkedList;
+
 
 public class AlgorithmsDemo {
+	static void display(int array[]) {
+		for(int i = 0; i < array.length; i++)
+		System.out.print(array[i] + " ");
+		System.out.println("");
+		}
 
 	public static void main(String[] args) {
 //		LinkedList<Integer> ll = new LinkedList<Integer>();
@@ -70,10 +73,10 @@ public class AlgorithmsDemo {
 		for(int i = 0; i < 10; i++)
 		  { array[i] = (-3) * i; }
 		System.out.print("Original contents: ");
-//		display(array);
+		display(array);
 		Arrays.sort(array);
 		System.out.print("Sorted: ");
-//		display(array);
+		display(array);
 		Arrays.fill(array, 2, 6, -1);
 		System.out.print("After fill(): ");
 		display(array);
@@ -83,13 +86,6 @@ public class AlgorithmsDemo {
 		System.out.print("The value -9 is at location ");
 		int index = Arrays.binarySearch(array, -9);
 		System.out.println(index);
-		
-
-		static void display(int array[]) {
-		for(int i = 0; i < array.length; i++)
-		System.out.print(array[i] + " ");
-		System.out.println("");
-		}
 
 	}
 

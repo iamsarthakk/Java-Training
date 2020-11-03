@@ -8,5 +8,6 @@ public class TestMainD1 {
 		D1 obj = new D1(25, "Mumbai");
 		obj.output();
 		D2 obj1 = new D2();
+		System.out.println(obj1);
 	}
 }

@@ -6,11 +6,11 @@ public class D1 {
 	protected D1(){
 		
 	}
-	protected D1(int a, String s){
+	public D1(int a, String s){
 		this.a = a;
 		this.s = s;
 	}
-	protected void output() {
+	public void output() {
 		System.out.println(a+" "+s);
 	}
 }
