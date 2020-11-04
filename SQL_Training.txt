@@ -1,0 +1,607 @@
+Enter password: ****
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 19
+Server version: 8.0.22 MySQL Community Server - GPL
+
+Copyright (c) 2000, 2020, Oracle and/or its affiliates. All rights reserved.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> show database
+    ->
+    ->
+    ->
+    -> ^C
+mysql> show database()
+    ->
+    ->
+    -> ad
+    ->
+    -> ^C
+mysql> show database()
+    -> ^C
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| mysql              |
+| performance_schema |
+| sakila             |
+| sys                |
+| world              |
++--------------------+
+6 rows in set (0.08 sec)
+
+mysql> create database sample;
+Query OK, 1 row affected (0.11 sec)
+
+mysql> use sample;
+Database changed
+mysql> create table EMp
+    -> (eid int(4),
+    -> ename char(15),
+    -> egen char(1),
+    -> esal double(9,2)
+    -> );
+Query OK, 0 rows affected, 2 warnings (2.15 sec)
+
+mysql> EMp
+    -> ;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'EMp' at line 1
+mysql> show tables;
++------------------+
+| Tables_in_sample |
++------------------+
+| emp              |
++------------------+
+1 row in set (0.07 sec)
+
+mysql> select * from emp;
+Empty set (0.04 sec)
+
+mysql> insert into EMp values(101, 'Abhigyan', 'M', 25000.00);
+Query OK, 1 row affected (0.06 sec)
+
+mysql> alter table EMp add ecity char(15);
+Query OK, 0 rows affected (1.68 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> desc EMp
+    -> ;
++-------+-------------+------+-----+---------+-------+
+| Field | Type        | Null | Key | Default | Extra |
++-------+-------------+------+-----+---------+-------+
+| eid   | int         | YES  |     | NULL    |       |
+| ename | char(15)    | YES  |     | NULL    |       |
+| egen  | char(1)     | YES  |     | NULL    |       |
+| esal  | double(9,2) | YES  |     | NULL    |       |
+| ecity | char(15)    | YES  |     | NULL    |       |
++-------+-------------+------+-----+---------+-------+
+5 rows in set (0.00 sec)
+
+mysql> select * from EMp
+    -> ;
++------+----------+------+----------+-------+
+| eid  | ename    | egen | esal     | ecity |
++------+----------+------+----------+-------+
+|  101 | Abhigyan | M    | 25000.00 | NULL  |
++------+----------+------+----------+-------+
+1 row in set (0.00 sec)
+
+mysql> update emp set ecity = "New Delhi" where eid=101;
+Query OK, 1 row affected (0.06 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> alter table emp add jdate date;
+Query OK, 0 rows affected (0.35 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> insert into EMp values(102, 'Sarthak', 'M', 65000.00)
+    -> insert into EMp values(103, 'Anamica', 'F', 5000.00)
+    -> insert into EMp values(104, 'Bunty', 'M', 25600.00)
+    -> insert into EMp values(105, 'Dev', 'M', 55000.00)
+    -> insert into EMp values(106, 'Mansi', 'F', 35000.00,'Mumbai');
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'insert into EMp values(103, 'Anamica', 'F', 5000.00)
+insert into EMp values(104,' at line 2
+mysql> insert into EMp values(102, 'Sarthak', 'M', 65000.00,"New York");
+ERROR 1136 (21S01): Column count doesn't match value count at row 1
+mysql> insert into EMp values(102, 'Sarthak', 'M', 65000.00,'New York');
+ERROR 1136 (21S01): Column count doesn't match value count at row 1
+mysql> insert into EMp (eid. ename, egen,esal, city) values(102, 'Sarthak', 'M', 65000.00,'New York');
+ERROR 1054 (42S22): Unknown column 'eid.ename' in 'field list'
+mysql> insert into EMp (eid, ename, egen,esal, city) values(102, 'Sarthak', 'M', 65000.00,'New York');
+ERROR 1054 (42S22): Unknown column 'city' in 'field list'
+mysql> insert into EMp (eid, ename, egen,esal, ecity) values(102, 'Sarthak', 'M', 65000.00,'New York');
+Query OK, 1 row affected (0.12 sec)
+
+mysql> insert into EMp (eid, ename, egen,esal, ecity) values(102, 'Anamica', 'F',5000.00 ,'Okohama');
+Query OK, 1 row affected (0.15 sec)
+
+mysql> show tables
+    -> ;
++------------------+
+| Tables_in_sample |
++------------------+
+| emp              |
++------------------+
+1 row in set (0.07 sec)
+
+mysql> select * from emp
+    -> ;
++------+----------+------+----------+-----------+-------+
+| eid  | ename    | egen | esal     | ecity     | jdate |
++------+----------+------+----------+-----------+-------+
+|  101 | Abhigyan | M    | 25000.00 | New Delhi | NULL  |
+|  102 | Sarthak  | M    | 65000.00 | New York  | NULL  |
+|  102 | Anamica  | F    |  5000.00 | Okohama   | NULL  |
++------+----------+------+----------+-----------+-------+
+3 rows in set (0.00 sec)
+
+mysql> update emp eid=103 where ename LIKE 'Anamica';
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '=103 where ename LIKE 'Anamica'' at line 1
+mysql> update emp set eid=103 where ename LIKE 'Anamica';
+Query OK, 1 row affected (0.10 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select * from emp;
++------+----------+------+----------+-----------+-------+
+| eid  | ename    | egen | esal     | ecity     | jdate |
++------+----------+------+----------+-----------+-------+
+|  101 | Abhigyan | M    | 25000.00 | New Delhi | NULL  |
+|  102 | Sarthak  | M    | 65000.00 | New York  | NULL  |
+|  103 | Anamica  | F    |  5000.00 | Okohama   | NULL  |
++------+----------+------+----------+-----------+-------+
+3 rows in set (0.00 sec)
+
+mysql> insert into EMp (eid, ename, egen,esal, ecity) values(104, 'Mansi', 'F',35000.00 ,'Sydny');
+Query OK, 1 row affected (0.08 sec)
+
+mysql> select * from emp;
++------+----------+------+----------+-----------+-------+
+| eid  | ename    | egen | esal     | ecity     | jdate |
++------+----------+------+----------+-----------+-------+
+|  101 | Abhigyan | M    | 25000.00 | New Delhi | NULL  |
+|  102 | Sarthak  | M    | 65000.00 | New York  | NULL  |
+|  103 | Anamica  | F    |  5000.00 | Okohama   | NULL  |
+|  104 | Mansi    | F    | 35000.00 | Sydny     | NULL  |
++------+----------+------+----------+-----------+-------+
+4 rows in set (0.04 sec)
+
+mysql> insert into EMp (eid, ename, egen,esal, ecity) values(105, 'Bunty', 'M',25400.00 ,'Moscow');
+Query OK, 1 row affected (0.15 sec)
+
+mysql> insert into EMp (eid, ename, egen,esal, ecity) values(106, 'Dev', 'M',55000.00 ,'Hong Kong');
+Query OK, 1 row affected (0.08 sec)
+
+mysql> select * from emp;
++------+----------+------+----------+-----------+-------+
+| eid  | ename    | egen | esal     | ecity     | jdate |
++------+----------+------+----------+-----------+-------+
+|  101 | Abhigyan | M    | 25000.00 | New Delhi | NULL  |
+|  102 | Sarthak  | M    | 65000.00 | New York  | NULL  |
+|  103 | Anamica  | F    |  5000.00 | Okohama   | NULL  |
+|  104 | Mansi    | F    | 35000.00 | Sydny     | NULL  |
+|  105 | Bunty    | M    | 25400.00 | Moscow    | NULL  |
+|  106 | Dev      | M    | 55000.00 | Hong Kong | NULL  |
++------+----------+------+----------+-----------+-------+
+6 rows in set (0.00 sec)
+
+mysql> insert into EMp (eid, ename, egen,esal, ecity) values(107, 'Maninder', 'M',46665.00 ,'Canada');
+Query OK, 1 row affected (0.11 sec)
+
+mysql> select ename, eid, esal from emp where ename like 'ma%';
++----------+------+----------+
+| ename    | eid  | esal     |
++----------+------+----------+
+| Mansi    |  104 | 35000.00 |
+| Maninder |  107 | 46665.00 |
++----------+------+----------+
+2 rows in set (0.03 sec)
+
+mysql> insert into EMp (eid, ename, egen,esal, ecity) values(108, 'Abhilasha', 'F',42556.00 ,'Brussels');
+Query OK, 1 row affected (0.10 sec)
+
+mysql> alter table emp modify eid int(4) primary key;
+Query OK, 0 rows affected, 1 warning (1.81 sec)
+Records: 0  Duplicates: 0  Warnings: 1
+
+mysql> select * from emp;
++-----+-----------+------+----------+-----------+-------+
+| eid | ename     | egen | esal     | ecity     | jdate |
++-----+-----------+------+----------+-----------+-------+
+| 101 | Abhigyan  | M    | 25000.00 | New Delhi | NULL  |
+| 102 | Sarthak   | M    | 65000.00 | New York  | NULL  |
+| 103 | Anamica   | F    |  5000.00 | Okohama   | NULL  |
+| 104 | Mansi     | F    | 35000.00 | Sydny     | NULL  |
+| 105 | Bunty     | M    | 25400.00 | Moscow    | NULL  |
+| 106 | Dev       | M    | 55000.00 | Hong Kong | NULL  |
+| 107 | Maninder  | M    | 46665.00 | Canada    | NULL  |
+| 108 | Abhilasha | F    | 42556.00 | Brussels  | NULL  |
++-----+-----------+------+----------+-----------+-------+
+8 rows in set (0.00 sec)
+
+mysql> desc emp;
++-------+-------------+------+-----+---------+-------+
+| Field | Type        | Null | Key | Default | Extra |
++-------+-------------+------+-----+---------+-------+
+| eid   | int         | NO   | PRI | NULL    |       |
+| ename | char(15)    | YES  |     | NULL    |       |
+| egen  | char(1)     | YES  |     | NULL    |       |
+| esal  | double(9,2) | YES  |     | NULL    |       |
+| ecity | char(15)    | YES  |     | NULL    |       |
+| jdate | date        | YES  |     | NULL    |       |
++-------+-------------+------+-----+---------+-------+
+6 rows in set (0.00 sec)
+
+mysql> create taple dept
+    -> (deptid int(3) PRIAMARY KEY,
+    -> dname char(15)
+    -> );
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'taple dept
+(deptid int(3) PRIAMARY KEY,
+dname char(15)
+)' at line 1
+mysql> create table dept
+    -> (deptid int(3) PRIAMARY KEY,
+    -> dname char(15)
+    -> );
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'PRIAMARY KEY,
+dname char(15)
+)' at line 2
+mysql> create taple dept
+    -> (deptid int(3) PRIMARY KEY,
+    -> dname char(15)
+    -> );
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'taple dept
+(deptid int(3) PRIMARY KEY,
+dname char(15)
+)' at line 1
+mysql>  create taple dept
+    ->     -> (deptid int(3) PRIMARY KEY,
+    ->     -> dname char(15)
+    -> (deptid int(3) PRIMARY KEY,^Z
+    -> ;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'taple dept
+    -> (deptid int(3) PRIMARY KEY,
+    -> dname char(15)
+(deptid int(' at line 1
+mysql>  create table dept
+    -> (deptid int(3) PRIMARY KEY,
+    -> dname char(15)
+    -> );
+Query OK, 0 rows affected, 1 warning (0.69 sec)
+
+mysql> inser into dept values (102, 'Marketing');
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'inser into dept values (102, 'Marketing')' at line 1
+mysql> insert into dept values (102, 'Marketing');
+Query OK, 1 row affected (0.19 sec)
+
+mysql> select * from dept;
++--------+-----------+
+| deptid | dname     |
++--------+-----------+
+|    102 | Marketing |
++--------+-----------+
+1 row in set (0.00 sec)
+
+mysql> insert into dept values (101, 'Finance');
+Query OK, 1 row affected (0.08 sec)
+
+mysql> select * from dept;
++--------+-----------+
+| deptid | dname     |
++--------+-----------+
+|    101 | Finance   |
+|    102 | Marketing |
++--------+-----------+
+2 rows in set (0.00 sec)
+
+mysql> select * from emp
+    -> ;
++-----+-----------+------+----------+-----------+-------+
+| eid | ename     | egen | esal     | ecity     | jdate |
++-----+-----------+------+----------+-----------+-------+
+| 101 | Abhigyan  | M    | 25000.00 | New Delhi | NULL  |
+| 102 | Sarthak   | M    | 65000.00 | New York  | NULL  |
+| 103 | Anamica   | F    |  5000.00 | Okohama   | NULL  |
+| 104 | Mansi     | F    | 35000.00 | Sydny     | NULL  |
+| 105 | Bunty     | M    | 25400.00 | Moscow    | NULL  |
+| 106 | Dev       | M    | 55000.00 | Hong Kong | NULL  |
+| 107 | Maninder  | M    | 46665.00 | Canada    | NULL  |
+| 108 | Abhilasha | F    | 42556.00 | Brussels  | NULL  |
++-----+-----------+------+----------+-----------+-------+
+8 rows in set (0.04 sec)
+
+mysql> alter table emp add deptid int(3) REFERENCES dept(deptid);
+Query OK, 0 rows affected, 1 warning (1.23 sec)
+Records: 0  Duplicates: 0  Warnings: 1
+
+mysql> select * from emp;
++-----+-----------+------+----------+-----------+-------+--------+
+| eid | ename     | egen | esal     | ecity     | jdate | deptid |
++-----+-----------+------+----------+-----------+-------+--------+
+| 101 | Abhigyan  | M    | 25000.00 | New Delhi | NULL  |   NULL |
+| 102 | Sarthak   | M    | 65000.00 | New York  | NULL  |   NULL |
+| 103 | Anamica   | F    |  5000.00 | Okohama   | NULL  |   NULL |
+| 104 | Mansi     | F    | 35000.00 | Sydny     | NULL  |   NULL |
+| 105 | Bunty     | M    | 25400.00 | Moscow    | NULL  |   NULL |
+| 106 | Dev       | M    | 55000.00 | Hong Kong | NULL  |   NULL |
+| 107 | Maninder  | M    | 46665.00 | Canada    | NULL  |   NULL |
+| 108 | Abhilasha | F    | 42556.00 | Brussels  | NULL  |   NULL |
++-----+-----------+------+----------+-----------+-------+--------+
+8 rows in set (0.00 sec)
+
+mysql> update emp set deptid = 101 where eid=101;
+Query OK, 1 row affected (0.12 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update emp set deptid = 102 where eid=102;
+Query OK, 1 row affected (0.19 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update emp set deptid = 103 where eid=103;
+Query OK, 1 row affected (0.15 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update emp set deptid = 104 where eid=104;
+Query OK, 1 row affected (0.08 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update emp set deptid = 105 where eid=105;
+Query OK, 1 row affected (0.06 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update emp set deptid = 106 where eid=106;
+Query OK, 1 row affected (0.05 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update emp set deptid = 107 where eid=107;
+Query OK, 1 row affected (0.10 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update emp set deptid = 108 where eid=108;
+Query OK, 1 row affected (0.12 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select * from emp;
++-----+-----------+------+----------+-----------+-------+--------+
+| eid | ename     | egen | esal     | ecity     | jdate | deptid |
++-----+-----------+------+----------+-----------+-------+--------+
+| 101 | Abhigyan  | M    | 25000.00 | New Delhi | NULL  |    101 |
+| 102 | Sarthak   | M    | 65000.00 | New York  | NULL  |    102 |
+| 103 | Anamica   | F    |  5000.00 | Okohama   | NULL  |    103 |
+| 104 | Mansi     | F    | 35000.00 | Sydny     | NULL  |    104 |
+| 105 | Bunty     | M    | 25400.00 | Moscow    | NULL  |    105 |
+| 106 | Dev       | M    | 55000.00 | Hong Kong | NULL  |    106 |
+| 107 | Maninder  | M    | 46665.00 | Canada    | NULL  |    107 |
+| 108 | Abhilasha | F    | 42556.00 | Brussels  | NULL  |    108 |
++-----+-----------+------+----------+-----------+-------+--------+
+8 rows in set (0.00 sec)
+
+mysql> insert into dept values (103, 'IT');
+Query OK, 1 row affected (0.10 sec)
+
+mysql> insert into dept values (104, 'Research');
+Query OK, 1 row affected (0.15 sec)
+
+mysql> insert into dept values (105, 'Operations');
+Query OK, 1 row affected (0.08 sec)
+
+mysql> insert into dept values (106, 'Sales');
+Query OK, 1 row affected (0.11 sec)
+
+mysql> insert into dept values (107, 'Management');
+Query OK, 1 row affected (0.09 sec)
+
+mysql> insert into dept values (108, 'Consultancy');
+Query OK, 1 row affected (0.11 sec)
+
+mysql> select dept.dname, emp.ename, emp.eid, emp.esal
+    -> from dept, emp
+    -> where dept.deptid=emp.deptid
+    -> order by dept.dname;
++-------------+-----------+-----+----------+
+| dname       | ename     | eid | esal     |
++-------------+-----------+-----+----------+
+| Consultancy | Abhilasha | 108 | 42556.00 |
+| Finance     | Abhigyan  | 101 | 25000.00 |
+| IT          | Anamica   | 103 |  5000.00 |
+| Management  | Maninder  | 107 | 46665.00 |
+| Marketing   | Sarthak   | 102 | 65000.00 |
+| Operations  | Bunty     | 105 | 25400.00 |
+| Research    | Mansi     | 104 | 35000.00 |
+| Sales       | Dev       | 106 | 55000.00 |
++-------------+-----------+-----+----------+
+8 rows in set (0.07 sec)
+
+mysql> insert into EMp (eid, ename, egen,esal, ecity) values(109, 'Shweta', 'F',35560.00 ,'Bangluru');
+Query OK, 1 row affected (0.09 sec)
+
+mysql> insert into EMp (eid, ename, egen,esal, ecity) values(110, 'Mrityunjaya', 'M',51303.00 ,'Denmark');
+Query OK, 1 row affected (0.31 sec)
+
+mysql> select e.ename, d.dname, e.esal
+    -> from dept d
+    -> inner join emp e
+    -> on d.deptid=e.eid
+    -> order by e.ename;
++-----------+-------------+----------+
+| ename     | dname       | esal     |
++-----------+-------------+----------+
+| Abhigyan  | Finance     | 25000.00 |
+| Abhilasha | Consultancy | 42556.00 |
+| Anamica   | IT          |  5000.00 |
+| Bunty     | Operations  | 25400.00 |
+| Dev       | Sales       | 55000.00 |
+| Maninder  | Management  | 46665.00 |
+| Mansi     | Research    | 35000.00 |
+| Sarthak   | Marketing   | 65000.00 |
++-----------+-------------+----------+
+8 rows in set (0.00 sec)
+
+mysql> select e.ename, d.dname, e.esal
+    -> from dept d
+    -> right outer join emp e
+    -> on d.deptid=e.eid
+    -> order by e.name;
+ERROR 1054 (42S22): Unknown column 'e.name' in 'order clause'
+mysql> select e.ename, d.dname, e.esal
+    -> from dept d
+    -> right outer join emp e
+    -> on d.deptid=e.eid
+    -> order by e.ename;
++-------------+-------------+----------+
+| ename       | dname       | esal     |
++-------------+-------------+----------+
+| Abhigyan    | Finance     | 25000.00 |
+| Abhilasha   | Consultancy | 42556.00 |
+| Anamica     | IT          |  5000.00 |
+| Bunty       | Operations  | 25400.00 |
+| Dev         | Sales       | 55000.00 |
+| Maninder    | Management  | 46665.00 |
+| Mansi       | Research    | 35000.00 |
+| Mrityunjaya | NULL        | 51303.00 |
+| Sarthak     | Marketing   | 65000.00 |
+| Shweta      | NULL        | 35560.00 |
++-------------+-------------+----------+
+10 rows in set (0.00 sec)
+
+mysql> insert into dept (dname) values ('Software');
+ERROR 1364 (HY000): Field 'deptid' doesn't have a default value
+mysql> insert into dept values (109,'Software');
+Query OK, 1 row affected (0.13 sec)
+
+mysql> insert into dept values (110,'Data');
+Query OK, 1 row affected (0.09 sec)
+
+mysql> select e.ename, d.dname, e.esal
+    -> from dept d
+    -> left outer join emp e
+    -> on d.deptid=e.eid
+    -> order by e.ename;
++-------------+-------------+----------+
+| ename       | dname       | esal     |
++-------------+-------------+----------+
+| Abhigyan    | Finance     | 25000.00 |
+| Abhilasha   | Consultancy | 42556.00 |
+| Anamica     | IT          |  5000.00 |
+| Bunty       | Operations  | 25400.00 |
+| Dev         | Sales       | 55000.00 |
+| Maninder    | Management  | 46665.00 |
+| Mansi       | Research    | 35000.00 |
+| Mrityunjaya | Data        | 51303.00 |
+| Sarthak     | Marketing   | 65000.00 |
+| Shweta      | Software    | 35560.00 |
++-------------+-------------+----------+
+10 rows in set (0.00 sec)
+
+mysql> select * from emp
+    -> ;
++-----+-------------+------+----------+-----------+-------+--------+
+| eid | ename       | egen | esal     | ecity     | jdate | deptid |
++-----+-------------+------+----------+-----------+-------+--------+
+| 101 | Abhigyan    | M    | 25000.00 | New Delhi | NULL  |    101 |
+| 102 | Sarthak     | M    | 65000.00 | New York  | NULL  |    102 |
+| 103 | Anamica     | F    |  5000.00 | Okohama   | NULL  |    103 |
+| 104 | Mansi       | F    | 35000.00 | Sydny     | NULL  |    104 |
+| 105 | Bunty       | M    | 25400.00 | Moscow    | NULL  |    105 |
+| 106 | Dev         | M    | 55000.00 | Hong Kong | NULL  |    106 |
+| 107 | Maninder    | M    | 46665.00 | Canada    | NULL  |    107 |
+| 108 | Abhilasha   | F    | 42556.00 | Brussels  | NULL  |    108 |
+| 109 | Shweta      | F    | 35560.00 | Bangluru  | NULL  |   NULL |
+| 110 | Mrityunjaya | M    | 51303.00 | Denmark   | NULL  |   NULL |
++-----+-------------+------+----------+-----------+-------+--------+
+10 rows in set (0.00 sec)
+
+mysql> show tables
+    -> ;
++------------------+
+| Tables_in_sample |
++------------------+
+| dept             |
+| emp              |
++------------------+
+2 rows in set (0.07 sec)
+
+mysql> create table sample;
+ERROR 1113 (42000): A table must have at least 1 column
+mysql> create table sample
+    ->  sn int(3);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'sn int(3)' at line 2
+mysql> select count(eid) from emp
+    -> group by egen;
++------------+
+| count(eid) |
++------------+
+|          6 |
+|          4 |
++------------+
+2 rows in set (0.00 sec)
+
+mysql> select egen, count(eid) from emp
+    -> group by egen;
++------+------------+
+| egen | count(eid) |
++------+------------+
+| M    |          6 |
+| F    |          4 |
++------+------------+
+2 rows in set (0.00 sec)
+
+mysql> select e.deptid, sum(e.esal) from emp e
+    -> group by e.deptid;
++--------+-------------+
+| deptid | sum(e.esal) |
++--------+-------------+
+|    101 |    25000.00 |
+|    102 |    65000.00 |
+|    103 |     5000.00 |
+|    104 |    35000.00 |
+|    105 |    25400.00 |
+|    106 |    55000.00 |
+|    107 |    46665.00 |
+|    108 |    42556.00 |
+|   NULL |    86863.00 |
++--------+-------------+
+9 rows in set (0.00 sec)
+
+mysql> select e.deptid, sum(e.eid) from emp e
+    -> group by e.deptid;
++--------+------------+
+| deptid | sum(e.eid) |
++--------+------------+
+|    101 |        101 |
+|    102 |        102 |
+|    103 |        103 |
+|    104 |        104 |
+|    105 |        105 |
+|    106 |        106 |
+|    107 |        107 |
+|    108 |        108 |
+|   NULL |        219 |
++--------+------------+
+9 rows in set (0.00 sec)
+
+mysql> select e.deptid, count(e.esal) from emp e
+    -> group by e.deptid;
++--------+---------------+
+| deptid | count(e.esal) |
++--------+---------------+
+|    101 |             1 |
+|    102 |             1 |
+|    103 |             1 |
+|    104 |             1 |
+|    105 |             1 |
+|    106 |             1 |
+|    107 |             1 |
+|    108 |             1 |
+|   NULL |             2 |
++--------+---------------+
+9 rows in set (0.00 sec)
+
+mysql>
