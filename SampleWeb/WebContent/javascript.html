@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<script>
+var d = new Date();
+var time = d.getHours();
+document.write(time);
+document.write("<br/>");
+if(time<10){
+	document.write("<b>Good moning<b>");
+}
+else{
+	document.write("<b>Good Afternoon<b><br>");
+}
+
+
+</script>
+
+<script>
+function product(a, b){
+	var x;
+	x=a*b;
+	return x;
+}
+</script>
+
+<script>
+var x;
+var mycars = new Array();
+mycars[0]="maruti";
+mycars[1]="gypsy";
+mycars[2]="mahindra";
+
+for (x in mycars){
+	document.write(mycars[x]+"<br\>");
+}
+</script>
+
+<script>
+var txt="";
+function message(){
+	try{
+		addalert("Welcome guest!");
+	}
+	catch(err){
+		txt = "there was an errot on this page.\n\n";
+		txt+="Click OK to continue viewing this page, \n";
+		txt+="or Cancel to return to the home page.\n\n";
+		if(!confirm(txt)){
+			document.write("This is Exception handler");
+		}
+	}
+}
+</script>
+
+<script>
+function message2(){
+	alert("This alert box was called with onload event");
+}
+</script>
+</head>
+<body onload="message2()">
+	<script>
+		var x=4, y=3;
+		var n = product(x, y);
+		document.write(product(x, y));
+		document.write(n);
+	</script>
+	
+	<input type="button" value="View message" onClick="message()"/>
+	
+	
+</body>
+</html>

@@ -1,8 +1,0 @@
-
-public class A1 {
-	int a;
-	public void inputA1(int a) {
-		this.a = a;
-		
-	}
-}

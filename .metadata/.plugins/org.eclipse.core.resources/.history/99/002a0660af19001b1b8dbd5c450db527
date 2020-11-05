@@ -1,9 +1,0 @@
-package pkg2;
-
-import pkg1.D1;
-
-public class TestMainD1 {
-	public static void main(String [] args) {
-		D1 obj = new D1();
-	}
-}
