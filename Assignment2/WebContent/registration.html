@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Register</title>
+
+<script>
+
+function pcheck(str)
+{
+	
+
+	// holds the total length (no of chars) of the string
+	var lstr=str.length
+
+	if(lstr<8){
+		alert("Password Should be atleast 8 characters")
+		return false
+	}
+	
+	var c = 0;
+	for(var i=0;i<str.length;i++){
+		if(str[i]>='A'&&str[i]<='Z'){
+			return true;
+		}
+	}
+	alert("Must contain at least one Uppercase letter")
+	return false
+}
+
+function ValidateForm()
+{
+
+	var password1=document.register.password1
+	//var password2=document.register.password2
+	
+	// if its null or empty, dont allow form submit
+	if ((password1.value==null) || (password1.value==""))
+	{
+		alert("Please Enter Password")
+		password1.focus()
+		return false
+	}
+
+	// if its not null, call the echeck method to check for syntax
+	if (pcheck(password1.value)==false)
+	{
+		password1.value=""
+		password1.focus()
+		return false
+	}
+	/*if(password1!=password2){
+		alert("Password doesn't match")
+		password2.value=""
+		password2.focus()
+		return false
+	}*/
+
+	// if everything above went well, allow the form to get submitted
+	return true
+ }
+</script>
+</head>
+<body>
+	<form name="register" method=POST action="userServlet" onSubmit="return ValidateForm()">
+	Username: <input type="text" name="user_name"> <br/>
+	Password: &nbsp;<input type="password" name="password1"> <br/>
+	<!-- Retype Password: <input type="password" name="password2"><br>-->
+
+	<a href="Sdetails.html">
+	<input type="submit" name="Submit" value="Submit"><br>
+	</a>
+
+</form>
+
+<a href="Sdetails.html">Enter the Student Details</a>
+</body>
+</html>
