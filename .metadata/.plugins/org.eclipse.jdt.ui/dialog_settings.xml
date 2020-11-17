@@ -6,7 +6,7 @@
 	<item key="TypeHierarchyViewPart.qualifiednames" value="false"/>
 	<item key="TypeHierarchyViewPart.linkeditors" value="false"/>
 	<item key="TypeHierarchyViewPart.orientation" value="3"/>
-	<item key="org.eclipse.jdt.ui.lastextjar" value="C:\Users\sarth\Downloads\mysql-connector-java-8.0.22"/>
+	<item key="org.eclipse.jdt.ui.lastextjar" value="C:\Users\sarth\Downloads\spring-dao-2.0.6.jar"/>
 	<section name="org.eclipse.jdt.internal.ui.packageview.PackageExplorerPart">
 		<item key="group_libraries" value="true"/>
 		<item key="layout" value="2"/>
